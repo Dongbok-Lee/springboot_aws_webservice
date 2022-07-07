@@ -10,7 +10,7 @@ import org.springframework.security.oauth2.client.userinfo.CustomUserTypesOAuth2
 @RequiredArgsConstructor
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private final CustomUserTypesOAuth2UserService costomOauth2UserService;
+    private final CustomOauth2UserService customOauth2UserService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .oauth2Login()
                 .userInfoEndpoint()
-                .userService(costomOauth2UserService);
+                .userService(customOauth2UserService);
 
     }
 }
